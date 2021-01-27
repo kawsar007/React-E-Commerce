@@ -1,9 +1,28 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Navbar from './Components/Navbar/Navbar';
+import Products from './Components/Products/Products';
+import { commerce } from './Library/commerce';
 
-function App() {
+const App = () => {
+  const [ products, setProducts ] = useState([]);
+
+  const fetchProducts = async () => {
+     const { data } = await commerce.products.list();
+
+     setProducts(data)
+  }
+ 
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
+  console.log(products, "products");
+
   return (
     <div className="App">
-      <h2>E-commerce website</h2>
+      <Navbar/>
+      <Products products={products}/>
     </div>
   );
 }
