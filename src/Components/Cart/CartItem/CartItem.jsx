@@ -2,7 +2,6 @@ import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@
 import React from 'react';
 import useStyles from './Styles';
 const CartItem = ({item, onUpdateCartQty, onRemoveFromCart}) => {
-    console.log(item, "Item");
     const classes = useStyles();
 
     return (
@@ -24,4 +23,4 @@ const CartItem = ({item, onUpdateCartQty, onRemoveFromCart}) => {
     )
 }
 
-export default CartItem
+export default CartItem;

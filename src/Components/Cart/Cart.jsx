@@ -8,11 +8,11 @@ import useStyles from './Styles.js';
 const Cart = ({cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart}) => {
     const classes = useStyles();
 
-    const EmptyCart = () => {
+    const EmptyCart = () => (
         <Typography variant="subtitle1">You Have no items in your shopping cart, 
             <Link to="/">start ading some</Link>!
         </Typography>
-    }
+    )
 
     const FilterCart = () => (
         <>
@@ -27,7 +27,7 @@ const Cart = ({cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart}) => {
         <Typography variant="h4">Subtotal: {cart.subtotal.formatted_with_symbol}</Typography>
         <div>
           <Button className={classes.emptyButton} onClick={onEmptyCart} size="large" type="button" variant="contained" color="secondary">Empty cart</Button>
-          <Button className={classes.checkoutButton}  to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
+          <Button className={classes.checkoutButton} component={Link}  to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
         </div>
       </div>
         </>
